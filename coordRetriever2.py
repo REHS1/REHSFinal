@@ -18,11 +18,11 @@ def findCoords(univList,fileWriter):
     global keyin
     global startime
     keys = list(open("keys.txt","r",encoding="utf-8"))
-    keys = keys[:9]
+    keys = keys[9:18]
     index = 0
     print(str(len(univList)))
     startime = time()
-    for index,univName in enumerate(univList[:12600]):
+    for index,univName in enumerate(univList[12600:25200]):
         """
         try:
             univName,coords = univ.split("|",1)
@@ -66,13 +66,13 @@ def getLocation(univ,key):
             reached = True
         #except ValueError:
         #    print("hi i'm paul")
-        except IndexError as voop:
+        except IndexError:
             #exc_type, exc_value, exc_traceback = sys.exc_info()
             #print(format(voop)+"   "+str(exc_traceback.tb_lineno))
             #print(univ)
             try:
                 univ = univ.split(',',1)[1]#[univ.index(',')+1]
-            except ValueError:
+            except IndexError:
                 break
     else:
         return data
